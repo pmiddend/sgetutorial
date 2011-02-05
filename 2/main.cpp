@@ -89,7 +89,7 @@ sge::sprite::choices
   boost::mpl::vector
   <
     sge::sprite::with_dim,
-   // sge::sprite::with_color,
+    sge::sprite::with_color,
     sge::sprite::with_texture,
     sge::sprite::with_rotation
   >
