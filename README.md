@@ -27,6 +27,7 @@ Those I will cover in this document. But you need other libraries as well:
 * boost (one of the latest versions)
 * OpenGL
 * libXi (at least 1.4.1, else input is broken)
+* libX11 (at least 1.4.1, else input is broken)
 
 Those I will _not_ cover. The installation is highly
 distribution-dependant, so I cannot possibly give an
