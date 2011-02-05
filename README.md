@@ -257,6 +257,10 @@ Note that this could take a while this time...
 	cd build
 	cmake -D CMAKE_INSTALL_PREFIX:=$myprefix -D EXTRA_CMAKE_MODULE_PATH:=$myprefix/share/cmake/Modules ..
 
+Note that this will build sge in its default configuration. If you
+want certain plugins and modules or the examples, use `ccmake ..` in
+the `build` directory to configure sge further.
+
 Expected:
 
 	-- The C compiler identification is GNU
@@ -311,8 +315,19 @@ Expected:
 	-- Generating done
 	-- Build files have been written to: /home/cpptest/test/spacegameengine/build
 
-Then
+This is technically not the "expected" output. It's the expected
+output if you have all of sge's optional components installed. For
+example, if you don't have OpenAL installed, then the check for OpenAL
+will, of course, fail. If you try to use sound anyway, the application
+will crash (unless you enable the null audio plugin).
+
+Anyway, then
 
 	make install
 
-This could also take a while.
+This could also take a while. And then you're done. The tutorial files
+can be built in exactly the same way and with the same commands as the
+libraries. The bin files will then reside in
+`build/bin/<number>/main<number>`.
+
+Hope this helps.
