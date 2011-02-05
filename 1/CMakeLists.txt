@@ -1,0 +1,10 @@
+ADD_EXECUTABLE(
+	main1
+	main.cpp)
+
+TARGET_LINK_LIBRARIES(
+	main1
+	${FCPPT_LIBRARIES}
+	${SGE_CORE_LIBRARY}
+	${SGE_systems_LIBRARY}
+	${Boost_LIBRARIES})
