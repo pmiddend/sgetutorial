@@ -24,7 +24,7 @@ libraries. The core dependencies are:
 
 Those I will cover in this document. But you need other libraries as well:
 
-* boost (one of the latest versions)
+* boost (at least 1.45)
 * OpenGL
 * libXi (at least 1.4.1, else input is broken)
 * libX11 (at least 1.4.1, else input is broken)
