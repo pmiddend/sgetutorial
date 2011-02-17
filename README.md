@@ -319,8 +319,8 @@ Expected:
 This is technically not the "expected" output. It's the expected
 output if you have all of sge's optional components installed. For
 example, if you don't have OpenAL installed, then the check for OpenAL
-will, of course, fail. If you try to use sound anyway, the application
-will crash (unless you enable the null audio plugin).
+will, of course, fail. If you try to use sound anyway, you will get an error
+(unless you enable the null audio plugin).
 
 Anyway, then
 

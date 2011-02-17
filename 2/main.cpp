@@ -20,6 +20,9 @@
 #include <sge/renderer/vsync.hpp>
 #include <sge/renderer/bit_depth.hpp>
 #include <sge/renderer/scoped_block.hpp>
+#include <sge/renderer/texture/address_mode2.hpp>
+#include <sge/renderer/texture/create_planar_from_view.hpp>
+#include <sge/renderer/texture/address_mode.hpp>
 #include <sge/input/keyboard/collector.hpp>
 #include <sge/input/keyboard/action.hpp>
 #include <sge/input/keyboard/key_code.hpp>
@@ -40,7 +43,7 @@
 #include <sge/renderer/device.hpp>
 #include <sge/image2d/multi_loader.hpp>
 #include <sge/image2d/file.hpp>
-#include <sge/renderer/filter/linear.hpp>
+#include <sge/renderer/texture/filter/linear.hpp>
 #include <sge/renderer/resource_flags_none.hpp>
 #include <sge/renderer/screen_unit.hpp>
 #include <sge/image/colors.hpp>
@@ -150,10 +153,13 @@ try
 			.texture(
 				sge::texture::part_ptr(
 					new sge::texture::part_raw(
-						sys.renderer()->create_texture(
+						sge::renderer::texture::create_planar_from_view(
+							sys.renderer(),
 							sys.image_loader().load(
 								FCPPT_TEXT("ship.png"))->view(),
-							sge::renderer::filter::linear,
+							sge::renderer::texture::filter::linear,
+							sge::renderer::texture::address_mode2(
+								sge::renderer::texture::address_mode::clamp),
 							sge::renderer::resource_flags::none))))
 			.texture_size()
 			.any_color(
