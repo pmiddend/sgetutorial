@@ -5,7 +5,7 @@
 #include <sge/systems/input_helper_field.hpp>
 #include <sge/systems/input_helper.hpp>
 #include <sge/systems/cursor_option_field.hpp>
-#include <sge/systems/viewport/manage_resize.hpp>
+#include <sge/systems/viewport/center_on_resize.hpp>
 #include <sge/renderer/refresh_rate_dont_care.hpp>
 #include <sge/renderer/no_multi_sampling.hpp>
 #include <sge/renderer/window_parameters.hpp>
@@ -67,7 +67,7 @@ try
           sge::renderer::window_mode::windowed,
           sge::renderer::vsync::on,
           sge::renderer::no_multi_sampling),
-        sge::systems::viewport::manage_resize()))
+        sge::systems::viewport::center_on_resize()))
     (sge::systems::input(
       sge::systems::input_helper_field(
         sge::systems::input_helper::keyboard_collector),
