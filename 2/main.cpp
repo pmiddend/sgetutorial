@@ -1,63 +1,20 @@
-#include <sge/systems/instance.hpp>
-#include <sge/systems/list.hpp>
-#include <sge/systems/image_loader.hpp>
-#include <sge/image/capabilities_field.hpp>
 #include <sge/all_extensions.hpp>
-#include <sge/systems/window.hpp>
-#include <sge/systems/input.hpp>
-#include <sge/systems/input_helper_field.hpp>
-#include <sge/systems/input_helper.hpp>
-#include <sge/systems/cursor_option_field.hpp>
-#include <sge/systems/viewport/center_on_resize.hpp>
-#include <sge/renderer/refresh_rate_dont_care.hpp>
-#include <sge/renderer/no_multi_sampling.hpp>
-#include <sge/renderer/window_parameters.hpp>
-#include <sge/renderer/screen_size.hpp>
-#include <sge/renderer/display_mode.hpp>
-#include <sge/renderer/depth_buffer.hpp>
-#include <sge/renderer/stencil_buffer.hpp>
-#include <sge/renderer/window_mode.hpp>
-#include <sge/renderer/vsync.hpp>
-#include <sge/renderer/bit_depth.hpp>
-#include <sge/renderer/scoped_block.hpp>
-#include <sge/renderer/texture/address_mode2.hpp>
-#include <sge/renderer/texture/create_planar_from_view.hpp>
-#include <sge/renderer/texture/address_mode.hpp>
-#include <sge/input/keyboard/collector.hpp>
-#include <sge/input/keyboard/action.hpp>
-#include <sge/input/keyboard/key_code.hpp>
-#include <sge/input/keyboard/key_event.hpp>
-#include <sge/window/instance.hpp>
-#include <sge/sprite/render_one.hpp>
-#include <sge/sprite/type_choices.hpp>
-#include <sge/sprite/choices.hpp>
-#include <sge/sprite/with_dim.hpp>
-#include <sge/sprite/with_color.hpp>
-#include <sge/sprite/with_texture.hpp>
-#include <sge/sprite/with_rotation.hpp>
-#include <sge/sprite/object.hpp>
-#include <sge/sprite/system.hpp>
-#include <sge/sprite/parameters.hpp>
-#include <sge/texture/part_ptr.hpp>
-#include <sge/texture/part_raw.hpp>
-#include <sge/renderer/device.hpp>
-#include <sge/image2d/multi_loader.hpp>
-#include <sge/image2d/file.hpp>
-#include <sge/renderer/texture/filter/linear.hpp>
-#include <sge/renderer/resource_flags_none.hpp>
-#include <sge/renderer/screen_unit.hpp>
-#include <sge/image/colors.hpp>
-#include <fcppt/math/dim/structure_cast.hpp>
-#include <fcppt/math/dim/arithmetic.hpp>
-#include <boost/mpl/vector.hpp>
-#include <sge/image/color/rgba8_format.hpp>
-#include <fcppt/math/dim/basic_impl.hpp>
-#include <fcppt/math/dim/arithmetic.hpp>
+#include <sge/image2d/image2d.hpp>
+#include <sge/image/image.hpp>
+#include <sge/input/keyboard/keyboard.hpp>
+#include <sge/renderer/renderer.hpp>
+#include <sge/sprite/sprite.hpp>
+#include <sge/systems/systems.hpp>
+#include <sge/texture/texture.hpp>
+#include <sge/viewport/viewport.hpp>
+#include <sge/window/window.hpp>
+#include <fcppt/math/dim/dim.hpp>
 #include <fcppt/container/bitfield/basic_impl.hpp>
 #include <fcppt/text.hpp>
 #include <fcppt/exception.hpp>
 #include <fcppt/io/cerr.hpp>
 #include <fcppt/signal/scoped_connection.hpp>
+#include <boost/mpl/vector.hpp>
 #include <iostream>
 #include <ostream>
 #include <exception>
@@ -118,22 +75,19 @@ try
   sge::systems::instance sys(
     sge::systems::list()
     (sge::systems::window(
-        sge::renderer::window_parameters(
-          FCPPT_TEXT("the_game"))))
+        sge::window::simple_parameters(
+          FCPPT_TEXT("the_game"),
+					sge::window::dim(
+						1024,768))))
     (sge::systems::renderer(
         sge::renderer::parameters(
-          sge::renderer::display_mode(
-            sge::renderer::screen_size(
-              1024,
-              768),
-            sge::renderer::bit_depth::depth32,
-            sge::renderer::refresh_rate_dont_care),
-          sge::renderer::depth_buffer::off,
-          sge::renderer::stencil_buffer::off,
-          sge::renderer::window_mode::windowed,
+					sge::renderer::visual_depth::depth32,
+          sge::renderer::depth_stencil_buffer::off,
           sge::renderer::vsync::on,
           sge::renderer::no_multi_sampling),
-        sge::systems::viewport::center_on_resize()))
+        sge::viewport::center_on_resize(
+					sge::window::dim(
+						1024,768))))
 		(sge::systems::image_loader(
 			sge::image::capabilities_field::null(),
 			sge::all_extensions))
@@ -165,8 +119,9 @@ try
 			.any_color(
 				sge::image::colors::white())
 			.center(
-				fcppt::math::dim::structure_cast<sprite_object::point>(
-					sys.renderer()->screen_size()/static_cast<sge::renderer::screen_unit>(2)))
+				sprite_object::vector(
+					512,
+					384))
 			.elements());
 
 	sprite_system sprite_sys(

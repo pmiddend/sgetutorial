@@ -2,21 +2,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT(blog)
 
-# This allows ENDIFs with no specifier _what_ ends
-SET (CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS ON)
-
-SET(EXTRA_CMAKE_MODULE_PATH "" CACHE PATH "Extra paths to search for cmake modules")
-SET(CMAKE_MODULE_PATH "${EXTRA_CMAKE_MODULE_PATH}")
-
-IF(${CMAKE_BINARY_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
-	MESSAGE(
-		FATAL_ERROR
-		"In-source builds are not permitted. "
-		"Make a separate folder for building:\n"
-		"mkdir build; cd build; cmake ..\n"
-		"Before that, remove the files that cmake"
-		"just created:\nrm -rf CMakeCache.txt CMakeFiles")
-ENDIF()
+INCLUDE(FcpptCMakeUtils)
 
 # boost begin
 SET(Boost_ADDITIONAL_VERSIONS "1.41" "1.41.0" "1.42" "1.42.0" "1.43" "1.43.0" "1.44" "1.44.0" "1.45.0")
@@ -42,39 +28,22 @@ FIND_PACKAGE(
 	SGE REQUIRED COMPONENTS sprite config time texture systems)
 
 INCLUDE_DIRECTORIES(${SGE_INCLUDE_DIRS})
-
-ADD_DEFINITIONS(${SGE_CFLAGS})
 # sge end
 
-# clang check begin
-INCLUDE (CheckCXXSourceRuns)
+# awl begin
+FIND_PACKAGE(
+	AWL REQUIRED
+)
 
-CHECK_CXX_SOURCE_RUNS(
-	"#include <cstdlib>
-	int main()
-	{
-	#ifdef __clang__
-		return EXIT_SUCCESS;
-	#else
-		return EXIT_FAILURE;
-	#endif
-	}
-	"
-	COMPILER_IS_CLANGPP)
-# clang check end
+INCLUDE_DIRECTORIES(${AWL_INCLUDE_DIRS})
+# awl end
 
-IF (CMAKE_COMPILER_IS_GNUCXX OR COMPILER_IS_CLANGPP)
-	ADD_DEFINITIONS("
-		-fvisibility=hidden -ansi -pedantic-errors -Wall"
-		"-Wextra -Wconversion -Wfloat-equal -Wredundant-decls"
-		"-Winit-self -Woverloaded-virtual"
-		"-Wshadow"
-		"-Wold-style-cast -Wnon-virtual-dtor -Wctor-dtor-privacy -Wsign-promo"
-		"-Wstrict-aliasing=1 -Wmissing-declarations -Wno-long-long")
-	# we don't use long long but boost does :(
+# fcppt begin
+FIND_PACKAGE(
+	Mizuiro REQUIRED)
 
-	ADD_DEFINITIONS(-D BOOST_FILESYSTEM_NO_DEPRECATED)
-ENDIF ()
+INCLUDE_DIRECTORIES(SYSTEM ${MIZUIRO_INCLUDE_DIRS})
+# fcppt end
 
 ADD_SUBDIRECTORY(1)
 ADD_SUBDIRECTORY(2)

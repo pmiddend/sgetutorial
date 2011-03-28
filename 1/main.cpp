@@ -1,28 +1,9 @@
-#include <sge/systems/instance.hpp>
-#include <sge/systems/list.hpp>
-#include <sge/systems/window.hpp>
-#include <sge/systems/input.hpp>
-#include <sge/systems/input_helper_field.hpp>
-#include <sge/systems/input_helper.hpp>
-#include <sge/systems/cursor_option_field.hpp>
-#include <sge/systems/viewport/center_on_resize.hpp>
-#include <sge/renderer/refresh_rate_dont_care.hpp>
-#include <sge/renderer/no_multi_sampling.hpp>
-#include <sge/renderer/window_parameters.hpp>
-#include <sge/renderer/screen_size.hpp>
-#include <sge/renderer/display_mode.hpp>
-#include <sge/renderer/depth_buffer.hpp>
-#include <sge/renderer/stencil_buffer.hpp>
-#include <sge/renderer/window_mode.hpp>
-#include <sge/renderer/vsync.hpp>
-#include <sge/renderer/bit_depth.hpp>
-#include <sge/renderer/scoped_block.hpp>
-#include <sge/input/keyboard/collector.hpp>
-#include <sge/input/keyboard/action.hpp>
-#include <sge/input/keyboard/key_code.hpp>
-#include <sge/input/keyboard/key_event.hpp>
-#include <sge/window/instance.hpp>
-#include <fcppt/math/dim/basic_impl.hpp>
+#include <sge/systems/systems.hpp>
+#include <sge/viewport/viewport.hpp>
+#include <sge/renderer/renderer.hpp>
+#include <sge/input/keyboard/keyboard.hpp>
+#include <sge/window/window.hpp>
+#include <fcppt/math/dim/dim.hpp>
 #include <fcppt/container/bitfield/basic_impl.hpp>
 #include <fcppt/text.hpp>
 #include <fcppt/exception.hpp>
@@ -52,22 +33,19 @@ try
   sge::systems::instance sys(
     sge::systems::list()
     (sge::systems::window(
-        sge::renderer::window_parameters(
-          FCPPT_TEXT("the_game"))))
+        sge::window::simple_parameters(
+          FCPPT_TEXT("the_game"),
+					sge::window::dim(
+						1024,768))))
     (sge::systems::renderer(
         sge::renderer::parameters(
-          sge::renderer::display_mode(
-            sge::renderer::screen_size(
-              1024,
-              768),
-            sge::renderer::bit_depth::depth32,
-            sge::renderer::refresh_rate_dont_care),
-          sge::renderer::depth_buffer::off,
-          sge::renderer::stencil_buffer::off,
-          sge::renderer::window_mode::windowed,
+					sge::renderer::visual_depth::depth32,
+          sge::renderer::depth_stencil_buffer::off,
           sge::renderer::vsync::on,
           sge::renderer::no_multi_sampling),
-        sge::systems::viewport::center_on_resize()))
+        sge::viewport::center_on_resize(
+					sge::window::dim(
+						1024,768))))
     (sge::systems::input(
       sge::systems::input_helper_field(
         sge::systems::input_helper::keyboard_collector),
