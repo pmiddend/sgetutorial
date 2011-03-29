@@ -125,66 +125,66 @@ This will hopefully output something like:
 
 Then you can run:
 
-  $ make install
+	make install
 
 This might take a few minutes. The last few lines of output should
 look something like:
 
--- Installing: /home/cpptest/local/include/fcppt/log/detail/auto_context.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/detail/output_helper.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/detail/inner_context_node.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/detail/context_tree_node.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/detail/temporary_output.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/detail/outer_context_node.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/level_from_string.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/output.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/make_location.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/location.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/object.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/info.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/exception.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/context_location.hpp
--- Installing: /home/cpptest/local/include/fcppt/log/context_location_fwd.hpp
--- Installing: /home/cpptest/local/include/fcppt/unique_ptr_decl.hpp
--- Installing: /home/cpptest/local/include/fcppt/shared_ptr_decl.hpp
--- Installing: /home/cpptest/local/include/fcppt/shared_ptr_fwd.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm
--- Installing: /home/cpptest/local/include/fcppt/algorithm/algorithm.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/copy_n.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/find_if_exn.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/ptr_container_erase.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/impl
--- Installing: /home/cpptest/local/include/fcppt/algorithm/impl/element_not_found.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/impl/exception.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/join_strings.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/compare_with.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/find_exn.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/ptr_container_erase_if.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/shortest_levenshtein.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/element_not_found.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/levenshtein.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/remove_if.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/contains_if.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/remove.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/set_intersection.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/contains.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/map.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/shift_compare.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/exception.hpp
--- Installing: /home/cpptest/local/include/fcppt/algorithm/append.hpp
--- Installing: /home/cpptest/local/include/fcppt/nonassignable.hpp
--- Installing: /home/cpptest/local/include/fcppt/exception.hpp
--- Installing: /home/cpptest/local/include/fcppt/stub_function.hpp
--- Installing: /home/cpptest/local/include/fcppt/cyclic_iterator_decl.hpp
--- Installing: /home/cpptest/local/include/fcppt/make_shared_ptr.hpp
--- Installing: /home/cpptest/local/include/fcppt/lexical_cast.hpp
--- Installing: /home/cpptest/local/include/fcppt/ref.hpp
--- Installing: /home/cpptest/local/include/fcppt/minmax_pair.hpp
--- Installing: /home/cpptest/local/include/fcppt/move.hpp
--- Installing: /home/cpptest/local/include/fcppt/config.hpp
--- Installing: /home/cpptest/local/include/fcppt/version.hpp
--- Installing: /home/cpptest/local/share/cmake/Modules/FindFcppt.cmake
--- Installing: /home/cpptest/local/share/cmake/Modules/FcpptCMakeUtils.cmake
+	-- Installing: /home/cpptest/local/include/fcppt/log/detail/auto_context.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/detail/output_helper.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/detail/inner_context_node.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/detail/context_tree_node.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/detail/temporary_output.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/detail/outer_context_node.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/level_from_string.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/output.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/make_location.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/location.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/object.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/info.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/exception.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/context_location.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/log/context_location_fwd.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/unique_ptr_decl.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/shared_ptr_decl.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/shared_ptr_fwd.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/algorithm.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/copy_n.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/find_if_exn.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/ptr_container_erase.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/impl
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/impl/element_not_found.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/impl/exception.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/join_strings.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/compare_with.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/find_exn.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/ptr_container_erase_if.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/shortest_levenshtein.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/element_not_found.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/levenshtein.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/remove_if.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/contains_if.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/remove.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/set_intersection.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/contains.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/map.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/shift_compare.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/exception.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/algorithm/append.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/nonassignable.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/exception.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/stub_function.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/cyclic_iterator_decl.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/make_shared_ptr.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/lexical_cast.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/ref.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/minmax_pair.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/move.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/config.hpp
+	-- Installing: /home/cpptest/local/include/fcppt/version.hpp
+	-- Installing: /home/cpptest/local/share/cmake/Modules/FindFcppt.cmake
+	-- Installing: /home/cpptest/local/share/cmake/Modules/FcpptCMakeUtils.cmake
 
 mizuiro
 -------
@@ -197,32 +197,32 @@ mizuiro
 
 The expected output looks something like this:
 
--- The C compiler identification is GNU
--- The CXX compiler identification is GNU
--- Check for working C compiler: /usr/bin/gcc
--- Check for working C compiler: /usr/bin/gcc -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++
--- Check for working CXX compiler: /usr/bin/c++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Performing Test FCPPT_UTILS_HAVE_GCC_VISIBILITY
--- Performing Test FCPPT_UTILS_HAVE_GCC_VISIBILITY - Success
--- Performing Test FCPPT_UTILS_HAVE_MISSING_DECLARATIONS_FLAG
--- Performing Test FCPPT_UTILS_HAVE_MISSING_DECLARATIONS_FLAG - Success
--- Performing Test FCPPT_UTILS_HAVE_SIGN_CONVERSION_FLAG
--- Performing Test FCPPT_UTILS_HAVE_SIGN_CONVERSION_FLAG - Success
--- Boost version: 1.46.1
--- Found FCPPT: /home/cpptest/local/lib/libfcppt.so 
--- Performing Test MIZUIRO_HAVE_BUILTIN_EXPECT
--- Performing Test MIZUIRO_HAVE_BUILTIN_EXPECT - Success
--- Boost version: 1.46.1
--- Found the following Boost libraries:
---   unit_test_framework
--- Configuring done
--- Generating done
--- Build files have been written to: /home/cpptest/mizuiro/build
+	-- The C compiler identification is GNU
+	-- The CXX compiler identification is GNU
+	-- Check for working C compiler: /usr/bin/gcc
+	-- Check for working C compiler: /usr/bin/gcc -- works
+	-- Detecting C compiler ABI info
+	-- Detecting C compiler ABI info - done
+	-- Check for working CXX compiler: /usr/bin/c++
+	-- Check for working CXX compiler: /usr/bin/c++ -- works
+	-- Detecting CXX compiler ABI info
+	-- Detecting CXX compiler ABI info - done
+	-- Performing Test FCPPT_UTILS_HAVE_GCC_VISIBILITY
+	-- Performing Test FCPPT_UTILS_HAVE_GCC_VISIBILITY - Success
+	-- Performing Test FCPPT_UTILS_HAVE_MISSING_DECLARATIONS_FLAG
+	-- Performing Test FCPPT_UTILS_HAVE_MISSING_DECLARATIONS_FLAG - Success
+	-- Performing Test FCPPT_UTILS_HAVE_SIGN_CONVERSION_FLAG
+	-- Performing Test FCPPT_UTILS_HAVE_SIGN_CONVERSION_FLAG - Success
+	-- Boost version: 1.46.1
+	-- Found FCPPT: /home/cpptest/local/lib/libfcppt.so 
+	-- Performing Test MIZUIRO_HAVE_BUILTIN_EXPECT
+	-- Performing Test MIZUIRO_HAVE_BUILTIN_EXPECT - Success
+	-- Boost version: 1.46.1
+	-- Found the following Boost libraries:
+	--   unit_test_framework
+	-- Configuring done
+	-- Generating done
+	-- Build files have been written to: /home/cpptest/mizuiro/build
 
 Then type:
 
