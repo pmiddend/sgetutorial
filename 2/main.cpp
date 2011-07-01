@@ -99,7 +99,7 @@ try
 	running = true;
 
 	fcppt::signal::scoped_connection const cb(
-		sys.keyboard_collector()->key_callback(
+		sys.keyboard_collector().key_callback(
 			&exit_program));
 
 	sprite_object ship(
@@ -129,7 +129,7 @@ try
 
 	while(running)
 	{
-		sys.window()->dispatch();
+		sys.window().dispatch();
 
 		sge::renderer::scoped_block block(
 			sys.renderer());

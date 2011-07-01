@@ -54,12 +54,12 @@ try
 	running = true;
 
 	fcppt::signal::scoped_connection const cb(
-		sys.keyboard_collector()->key_callback(
+		sys.keyboard_collector().key_callback(
 			&exit_program));
 
 	while(running)
 	{
-		sys.window()->dispatch();
+		sys.window().dispatch();
 	}
 
 	return EXIT_SUCCESS;
